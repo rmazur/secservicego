@@ -4,27 +4,27 @@ FROM golang:1.11beta2-alpine3.8 AS build-env
 RUN apk add --no-cache git
 
 # Secure against running as root
-RUN adduser -D -u 10000 florin
-RUN mkdir /gopherconuk/ && chown florin /gopherconuk/
-USER florin
+RUN adduser -D -u 10000 rmazur
+RUN mkdir /secservicego/ && chown rmazur /secservicego/
+USER rmazur
 
-WORKDIR /gopherconuk/
-ADD . /gopherconuk/
+WORKDIR /secservicego/
+ADD . /secservicego/
 
 # Compile the binary, we don't want to run the cgo resolver
-RUN CGO_ENABLED=0 go build -o /gopherconuk/gcuk .
+RUN CGO_ENABLED=0 go build -o /secservicego/grmz .
 
 # final stage
 FROM alpine:3.8
 
 # Secure against running as root
-RUN adduser -D -u 10000 florin
-USER florin
+RUN adduser -D -u 10000 rmazur
+USER rmazur
 
 WORKDIR /
-COPY --from=build-env /gopherconuk/certs/docker.localhost.* /
-COPY --from=build-env /gopherconuk/gcuk /
+COPY --from=build-env /secservicego/certs/docker.localhost.* /
+COPY --from=build-env /secservicego/grmz /
 
 EXPOSE 8080
 
-CMD ["/gcuk"]
+CMD ["/grmz"]
