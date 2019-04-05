@@ -15,7 +15,7 @@ type Handlers struct {
 func (h *Handlers) Home(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 	w.WriteHeader(http.StatusOK)
-	_, _ = w.Write([]byte(message))
+	w.Write([]byte(message))
 }
 
 func (h *Handlers) Logger(next http.HandlerFunc) http.HandlerFunc {
