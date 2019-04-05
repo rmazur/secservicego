@@ -1,4 +1,4 @@
-# Go micro-service in ~30 minutes
+# Go micro-service
 
 This is a Go micro-service written from scratch.
 
