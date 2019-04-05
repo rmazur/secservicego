@@ -26,7 +26,6 @@ func main() {
 	h.SetupRoutes(mux)
 
 	srv := server.New(mux, GcukServiceAddr)
-	logger.Println(GcukCertFile)
 	logger.Println("server starting")
 	err := srv.ListenAndServeTLS(GcukCertFile, GcukKeyFile)
 	if err != nil {

@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-const message = "Hello GopherCon UK 2018!"
+const message = "Hello Regis!"
 
 type Handlers struct {
 	logger *log.Logger
@@ -15,7 +15,7 @@ type Handlers struct {
 func (h *Handlers) Home(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(message))
+	_, _ = w.Write([]byte(message))
 }
 
 func (h *Handlers) Logger(next http.HandlerFunc) http.HandlerFunc {
