@@ -10,4 +10,4 @@ It shows how to use [net/http](https://godoc.org/net/http) + SSL configuration, 
 Because this project uses go modules, as long as you are using Go 1.11 Beta 2+ or Go 1.10 with vgo support,
 you should be ok.
 
-Self cert certificate is set for dev.localhost domain (to be set into your local hosts)
+Self cert SSL is set for dev.localhost domain (to be set into your local hosts)
