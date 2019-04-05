@@ -10,11 +10,11 @@ import (
 
 var (
 	//GcukCertFile    = os.Getenv("GCUK_CERT_FILE")
-	GcukCertFile = "./certs/local.localhost.cert"
+	GcukCertFile = "./certs/docker.localhost.cert"
 	//GcukKeyFile     = os.Getenv("GCUK_KEY_FILE")
-	GcukKeyFile = "./certs/local.localhost.key"
+	GcukKeyFile = "./certs/docker.localhost.key"
 	//GcukServiceAddr = os.Getenv("GCUK_SERVICE_ADDR")
-	GcukServiceAddr = "dev.localhost:8080"
+	GcukServiceAddr = "docker.localhost:8080"
 )
 
 func main() {
