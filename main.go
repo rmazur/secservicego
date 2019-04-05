@@ -1,17 +1,20 @@
 package main
 
 import (
-	"gopherconuk/homepage"
-	"gopherconuk/server"
 	"log"
 	"net/http"
 	"os"
+	"secservicego/homepage"
+	"secservicego/server"
 )
 
 var (
-	GcukCertFile    = os.Getenv("GCUK_CERT_FILE")
-	GcukKeyFile     = os.Getenv("GCUK_KEY_FILE")
-	GcukServiceAddr = os.Getenv("GCUK_SERVICE_ADDR")
+	//GcukCertFile    = os.Getenv("GCUK_CERT_FILE")
+	GcukCertFile = "./certs/local.localhost.cert"
+	//GcukKeyFile     = os.Getenv("GCUK_KEY_FILE")
+	GcukKeyFile = "./certs/local.localhost.key"
+	//GcukServiceAddr = os.Getenv("GCUK_SERVICE_ADDR")
+	GcukServiceAddr = "dev.localhost:8080"
 )
 
 func main() {
@@ -23,7 +26,7 @@ func main() {
 	h.SetupRoutes(mux)
 
 	srv := server.New(mux, GcukServiceAddr)
-
+	logger.Println(GcukCertFile)
 	logger.Println("server starting")
 	err := srv.ListenAndServeTLS(GcukCertFile, GcukKeyFile)
 	if err != nil {
