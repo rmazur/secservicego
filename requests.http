@@ -1,4 +1,4 @@
 ### Local connection
-GET https://dev.localhost:8080/
+GET https://docker.localhost:8080/
 
 ###
